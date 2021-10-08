@@ -22,9 +22,9 @@ namespace Plarium_Lesson3
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)//обработка события нажатия на кнопку "Что такое натуральное число"
         {
-            MessageBox.Show("Это целое положительное число (больше нуля)");
+            MessageBox.Show("Это целое положительное число (больше нуля)");//сообщение об информации
         }
     }
 }

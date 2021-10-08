@@ -26,20 +26,19 @@ namespace Plarium_Lesson3
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)//обработчик события нажатия на кнопку "Ввести"
         {
-            listofnumbers.Items.Clear();
-            int num;// = int.Parse(tb_input.Text);
-
+            listofnumbers.Items.Clear();//очищение списка 
+            int num;
+            //проверка является ли введённое значение числом и удовлетворяет ли условие задачи
+            //если неверно, показывается диалоговое окно
             if(!int.TryParse(tb_input.Text, out num) || int.Parse(tb_input.Text)>27 || int.Parse(tb_input.Text)<=0)
             {
-                // MessageBox.Show("Повторите ввод!");
                 Window1 dialog_window = new Window1();
-                dialog_window.ShowDialog();
-                tb_input.Text = "";
+                dialog_window.ShowDialog();//показ модального окна
+                tb_input.Text = "";//очищение строки для ввода
             }
             
-            // Console.WriteLine("--Все трехзначные числа, сумма цифр которых равна {0}:--", num);
             for (int i = 1; i < 10; i++)//подбор первой цифрры, которая может быть в диапазоне 1-9
             {
                 for (int j = 0; j < 10; j++)//подбор второй цифрры, который может быть в диапазоне 0-9
@@ -48,8 +47,7 @@ namespace Plarium_Lesson3
                     {
                         if (i + j + n == num)//проверка: равна ли сумма 3 цифр введённому числу
                         {
-                            listofnumbers.Items.Add(string.Format("{0}{1}{2}", i, j, n));
-                            // Console.WriteLine("{0}{1}{2}", a, b, c);//вывод трёхзначного числа по цифрам
+                            listofnumbers.Items.Add(string.Format("{0}{1}{2}", i, j, n));//добавление числа в список 
                         }
                     }
                 }
